@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CRUD JOGOS</title>
+    </head>
+    <style>
+           body {
+            background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20201016/pngtree-abstract-background-gaming-futuristic-banner-online-image_419160.jpg");
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            padding: 20px;
+            text-align: left; 
+        }
+
+        h1 {
+            color: #6A0DAD; 
+            font-size: 2.5em;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        h2 {
+            color: #DDA0DD;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            background-color: rgba(153, 104, 231, 0.5); 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            width: 300px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #6A0DAD;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #DDA0DD;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #6A0DAD;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #DDA0DD;
+        }
+
+        ol { 
+            padding-left: 20px; 
+            list-style-type: space-counter;
+        }
+
+        li {
+            background-color: rgba(235, 133, 235, 0.6);
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        hr {
+            border: 1px solid #6A0DAD;
+            margin: 20px 0;
+        }
+    </style>
+    <body>
+        <h1>BIBLIOTECA DE JOGOS</h1>
+        <form action="/criar" method="post">
+            <input type="text" name="nome" placeholder="Digite o nome do Jogo" required>
+            <input type="submit" value="Inserir">
+        </form>
+        <h2>JOGOS:</h2>
+        <ul>
+            {% for jogo in jogos%}
+            <li>{{ jogo }}</li>
+            {% endfor %}
+        </ul>
+        <hr>
+        <h2>Atualizar SEU JOGO:</h2>
+        <form action="/alterar" method="post">
+        <input type="text" name="old_name" placeholder="Nome atual"
+        required>
+        <input type="text" name="new_name" placeholder="Novo nome"
+        required>
+        <input type="submit" value="Alterar">
+        </form>
+
+        <h2>Apagar JOGO:</h2>
+        <form action="/apagar" method="post">
+        <input type="text" name="nome" placeholder="Nome do jogo"
+        required>
+        <input type="submit" value="Apagar">
+        </form>
+        </body>
+        </html>
+        <hr>
+    </body>
+</html>
